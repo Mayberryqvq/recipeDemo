@@ -1,11 +1,13 @@
 package com.mayberry.recipedemo.fragment.recipe
 
+import android.net.Network
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +16,8 @@ import com.mayberry.recipedemo.R
 import com.mayberry.recipedemo.databinding.FragmentRecipeBinding
 import com.mayberry.recipedemo.fragment.recipe.adapter.FoodAdapter
 import com.mayberry.recipedemo.fragment.recipe.adapter.TypeAdapter
+import com.mayberry.recipedemo.util.NetworkResult
+import com.mayberry.recipedemo.util.showToast
 import com.mayberry.recipedemo.viewmodel.MainViewModel
 
 class RecipeFragment : Fragment() {
@@ -31,21 +35,25 @@ class RecipeFragment : Fragment() {
         initTypeRecyclerView()
         initFoodRecyclerView()
         mainViewModel.recipes.observe(viewLifecycleOwner) {
-            //结束shimmer的加载效果
-            binding.foodRecyclerView.hideShimmerAdapter()
-            //传递下载的数据
-            foodAdapter.setData(it.results)
-            it.results.forEach { Result ->
-                Log.v("mayberry", "${Result.image}")
+            when (it) {
+                is NetworkResult.Success -> {
+                    binding.foodRecyclerView.hideShimmerAdapter()
+                    foodAdapter.setData(it.data!!.results)
+                }
+                is NetworkResult.Loading -> {
+                    binding.foodRecyclerView.showShimmerAdapter()
+                }
+                is NetworkResult.Error -> {
+                    binding.foodRecyclerView.showShimmerAdapter()
+                    showToast(requireContext(), it.message!!)
+                }
             }
-
         }
         fetchData("main course")
         return binding.root
     }
 
     private fun initFoodRecyclerView() {
-        binding.foodRecyclerView.showShimmerAdapter()
         binding.foodRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.foodRecyclerView.adapter = foodAdapter
     }

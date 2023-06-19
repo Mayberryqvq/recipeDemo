@@ -1,8 +1,11 @@
 package com.mayberry.recipedemo.data.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class ExtendedIngredient(
     @SerializedName("aisle")
     val aisle: String,
@@ -18,4 +21,4 @@ data class ExtendedIngredient(
     val name: String,
     @SerializedName("unit")
     val unit: String
-)
+): Parcelable

@@ -2,13 +2,16 @@ package com.mayberry.recipedemo.fragment.recipe.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.mayberry.recipedemo.data.model.Result
 import androidx.recyclerview.widget.RecyclerView
+import com.mayberry.recipedemo.R
 import com.mayberry.recipedemo.databinding.FoodItemBinding
+import com.mayberry.recipedemo.fragment.recipe.RecipeFragmentDirections
 
 class FoodAdapter: RecyclerView.Adapter<FoodAdapter.MyViewHolder>() {
     private var recipeList: List<Result> = emptyList()
-    class MyViewHolder(val binding: FoodItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(private val binding: FoodItemBinding): RecyclerView.ViewHolder(binding.root) {
         companion object {
             fun from(parent: ViewGroup): MyViewHolder {
                 val inflater = LayoutInflater.from(parent.context)
@@ -20,6 +23,10 @@ class FoodAdapter: RecyclerView.Adapter<FoodAdapter.MyViewHolder>() {
         fun bind(result: Result) {
             binding.result = result
             binding.executePendingBindings()
+            binding.foodContainer.setOnClickListener {
+                val action = RecipeFragmentDirections.actionRecipeFragmentToDetailFragment(result)
+                binding.foodContainer.findNavController().navigate(action)
+            }
         }
 
     }

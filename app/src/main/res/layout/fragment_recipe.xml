@@ -28,7 +28,8 @@
         android:textColor="#F3EFEF"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fitsSystemWindows="true"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -80,7 +81,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:shimmer_demo_layout="@layout/food_item_shimmer_layout"
-        app:shimmer_demo_child_count="4"
+        app:shimmer_demo_layout_manager_type="grid"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/type_recyclerView"
         app:layout_constraintHorizontal_bias="0.809"
@@ -89,16 +90,5 @@
         app:layout_constraintVertical_bias="0.298" >
 
     </com.cooltechworks.views.shimmer.ShimmerRecyclerView>
-
-
-
-
-
-
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

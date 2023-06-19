@@ -1,7 +1,10 @@
 package com.mayberry.recipedemo.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Result(
     @SerializedName("aggregateLikes")
     val aggregateLikes: Int,
@@ -45,4 +48,4 @@ data class Result(
     val veryHealthy: Boolean,
     @SerializedName("veryPopular")
     val veryPopular: Boolean
-)
+): Parcelable

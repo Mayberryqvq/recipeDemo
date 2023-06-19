@@ -3,11 +3,12 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
     namespace 'com.mayberry.recipedemo'
-    compileSdk 32
+    compileSdk 33
 
     buildFeatures {
         viewBinding true
@@ -58,6 +59,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-alpha05")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    //fragment
     implementation "androidx.activity:activity-ktx:1.4.0"
     implementation "androidx.fragment:fragment-ktx:1.4.1"
     //navigation
@@ -68,5 +70,10 @@ dependencies {
     implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'
+    //room
+    def room_version = "2.5.1"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation("androidx.room:room-runtime:$room_version")
 
 }

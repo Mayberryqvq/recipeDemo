@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.mayberry.recipedemo.data.model.Result" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2A2B30"
+        tools:context=".fragment.recipe.detail.DetailFragment">
+
+        <ImageView
+            android:id="@+id/main_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fitsSystemWindows="true"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/collectBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fitsSystemWindows="true"
+            android:src="@drawable/normal_book_mark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/detail_header_bg"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:src="@drawable/plate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backBtn" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/detail_header"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:src="@drawable/ic_launcher_background"
+            loadImageWithUrl="@{recipe.image}"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_header_bg"
+            app:layout_constraintEnd_toEndOf="@+id/detail_header_bg"
+            app:layout_constraintStart_toStartOf="@+id/detail_header_bg"
+            app:layout_constraintTop_toTopOf="@+id/detail_header_bg"
+            app:shapeAppearanceOverlay="@style/circleImageDetailStyle" />
+
+        <View
+            android:id="@+id/detail_info_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/top_round_shape"
+            app:layout_constraintBottom_toBottomOf="@+id/main_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_header_bg"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <View
+            android:id="@+id/detail_separateLine"
+            android:layout_width="56dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:background="#707070"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_header_bg" />
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{recipe.title}"
+            android:textColor="#F6F5F5"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/detail_min_textView"
+            app:layout_constraintStart_toStartOf="@+id/main_bg"
+            app:layout_constraintTop_toBottomOf="@+id/detail_separateLine"
+            tools:text="Homemade Garlic\nand Basil French Fries" />
+
+        <ImageView
+            android:id="@+id/detail_clock"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="3dp"
+            android:src="@drawable/clock"
+            app:layout_constraintBottom_toTopOf="@+id/minTextView"
+            app:layout_constraintEnd_toEndOf="@+id/minTextView"
+            app:layout_constraintStart_toStartOf="@+id/detail_min_textView" />
+
+        <TextView
+            android:id="@+id/minTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="5dp"
+            android:text="Min"
+            android:textColor="#EBEBEA"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_title"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_min_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            tools:text="123"
+            android:text="@{String.valueOf(recipe.readyInMinutes)}"
+            android:textColor="#EBEBEA"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/minTextView"
+            app:layout_constraintEnd_toStartOf="@+id/minTextView"
+            app:layout_constraintTop_toTopOf="@+id/minTextView" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cheapBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#29262E"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Cheap"
+            changeStatus="@{recipe.cheap}"
+            android:textAlignment="center"
+            android:textColor="@color/item_color"
+            app:layout_constraintEnd_toStartOf="@+id/veryHealthyBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@+id/detail_title"
+            app:layout_constraintTop_toBottomOf="@+id/detail_title" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/veryHealthyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:backgroundTint="#29262E"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="very healthy"
+            changeStatus="@{recipe.veryHealthy}"
+            android:textAlignment="center"
+            android:textColor="@color/item_color"
+            app:layout_constraintEnd_toStartOf="@+id/veganBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cheapBtn"
+            app:layout_constraintTop_toTopOf="@+id/cheapBtn" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/veryPopularBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:backgroundTint="#29262E"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Very Popular"
+            changeStatus="@{recipe.veryPopular}"
+            android:textAlignment="center"
+            android:textColor="@color/item_color"
+            app:layout_constraintEnd_toEndOf="@+id/minTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/veganBtn"
+            app:layout_constraintTop_toTopOf="@+id/veganBtn" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/veganBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:backgroundTint="#29262E"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Vegan"
+            changeStatus="@{recipe.vegan}"
+            android:textAlignment="center"
+            android:textColor="@color/item_color"
+            app:layout_constraintEnd_toStartOf="@+id/veryPopularBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/veryHealthyBtn"
+            app:layout_constraintTop_toTopOf="@+id/veryHealthyBtn" />
+
+        <View
+            android:id="@+id/bg"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@drawable/indicator_bg_round_shape"
+            app:layout_constraintEnd_toEndOf="@+id/veryPopularBtn"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="@+id/cheapBtn"
+            app:layout_constraintTop_toBottomOf="@+id/cheapBtn" />
+
+        <View
+            android:id="@+id/indicatorView"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@drawable/indicator_view_shape"
+            app:layout_constraintBottom_toBottomOf="@+id/bg"
+            app:layout_constraintEnd_toEndOf="@+id/detailsBtn"
+            app:layout_constraintStart_toStartOf="@+id/detailsBtn"
+            app:layout_constraintTop_toTopOf="@+id/bg" />
+
+        <TextView
+            android:id="@+id/detailsBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textAlignment="center"
+            android:textColor="@color/type_item_selector"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/bg"
+            app:layout_constraintEnd_toEndOf="@+id/indicatorView"
+            app:layout_constraintEnd_toStartOf="@+id/ingredientsBtn"
+            app:layout_constraintStart_toStartOf="@+id/cheapBtn"
+            app:layout_constraintTop_toTopOf="@+id/bg" />
+
+        <TextView
+            android:id="@+id/ingredientsBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Ingredients"
+            android:textAlignment="center"
+            android:textColor="@color/type_item_selector"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/bg"
+            app:layout_constraintEnd_toEndOf="@+id/veryPopularBtn"
+            app:layout_constraintStart_toEndOf="@+id/detailsBtn"
+            app:layout_constraintTop_toTopOf="@+id/bg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
