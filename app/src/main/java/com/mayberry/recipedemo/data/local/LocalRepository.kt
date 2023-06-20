@@ -1,6 +1,8 @@
 package com.mayberry.recipedemo.data.local
 
 import android.content.Context
+import com.mayberry.recipedemo.data.local.entity.FavoriteEntity
+import com.mayberry.recipedemo.data.local.entity.RecipeEntity
 import kotlinx.coroutines.flow.Flow
 
 class LocalRepository(context: Context) {
@@ -16,8 +18,19 @@ class LocalRepository(context: Context) {
         return recipeDao.getRecipe(type)
     }
 
-    //更新数据
-    suspend fun updateRecipe(recipeEntity: RecipeEntity) {
-        recipeDao.updateRecipe(recipeEntity)
+    /********-------- favorite --------********/
+    //查询所有收藏的食谱
+    fun getAllFavorites(): Flow<List<FavoriteEntity>> {
+        return recipeDao.getAllFavorites()
+    }
+
+    //插入收藏食谱
+    suspend fun insertFavorite(favoriteEntity: FavoriteEntity) {
+        recipeDao.insertFavorite(favoriteEntity)
+    }
+
+    //删除收藏
+    suspend fun deleteFavorite(favoriteEntity: FavoriteEntity) {
+        recipeDao.deleteFavorite(favoriteEntity)
     }
 }

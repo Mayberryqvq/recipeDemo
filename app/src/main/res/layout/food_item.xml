@@ -80,7 +80,7 @@
             app:layout_constraintVertical_bias="0.48" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/minText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Min"
@@ -91,7 +91,7 @@
             app:layout_constraintStart_toStartOf="@+id/view6" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/likeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Likes"
@@ -108,10 +108,10 @@
             android:text="@{String.valueOf(result.readyInMinutes)}"
             android:textColor="#DCD79E"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintBottom_toTopOf="@+id/minText"
+            app:layout_constraintEnd_toEndOf="@+id/minText"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/minText"
             app:layout_constraintTop_toTopOf="@+id/view7"
             tools:text="124" />
 
@@ -122,9 +122,9 @@
             android:text="@{String.valueOf(result.aggregateLikes)}"
             android:textColor="#DCD79E"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView7"
-            app:layout_constraintEnd_toEndOf="@+id/textView7"
-            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintBottom_toTopOf="@+id/likeText"
+            app:layout_constraintEnd_toEndOf="@+id/likeText"
+            app:layout_constraintStart_toStartOf="@+id/likeText"
             tools:text="124" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

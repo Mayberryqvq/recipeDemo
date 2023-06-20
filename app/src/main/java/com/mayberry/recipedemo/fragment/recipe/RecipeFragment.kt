@@ -1,18 +1,14 @@
 package com.mayberry.recipedemo.fragment.recipe
 
-import android.net.Network
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mayberry.recipedemo.R
 import com.mayberry.recipedemo.databinding.FragmentRecipeBinding
 import com.mayberry.recipedemo.fragment.recipe.adapter.FoodAdapter
 import com.mayberry.recipedemo.fragment.recipe.adapter.TypeAdapter

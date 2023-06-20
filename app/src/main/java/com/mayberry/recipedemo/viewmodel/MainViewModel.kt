@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.mayberry.recipedemo.data.local.LocalRepository
-import com.mayberry.recipedemo.data.local.RecipeEntity
+import com.mayberry.recipedemo.data.local.entity.RecipeEntity
 import com.mayberry.recipedemo.data.model.Recipe
 import com.mayberry.recipedemo.data.remote.RemoteRepository
 import com.mayberry.recipedemo.util.NetworkResult

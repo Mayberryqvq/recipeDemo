@@ -1,31 +1,25 @@
-package com.mayberry.recipedemo.fragment.recipe.adapter
+package com.mayberry.recipedemo.fragment.favorite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.mayberry.recipedemo.data.model.Result
 import androidx.recyclerview.widget.RecyclerView
-import com.mayberry.recipedemo.databinding.FoodItemBinding
-import com.mayberry.recipedemo.fragment.recipe.RecipeFragmentDirections
+import com.mayberry.recipedemo.data.model.Result
+import com.mayberry.recipedemo.databinding.FavoriteItemBinding
 
-class FoodAdapter: RecyclerView.Adapter<FoodAdapter.MyViewHolder>() {
+class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.MyViewHolder>() {
     private var recipeList: List<Result> = emptyList()
-    class MyViewHolder(private val binding: FoodItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(private val binding: FavoriteItemBinding): RecyclerView.ViewHolder(binding.root) {
         companion object {
             fun from(parent: ViewGroup): MyViewHolder {
                 val inflater = LayoutInflater.from(parent.context)
-                val binding = FoodItemBinding.inflate(inflater)
+                val binding = FavoriteItemBinding.inflate(inflater, parent, false)
                 return MyViewHolder(binding)
             }
         }
 
         fun bind(result: Result) {
-            binding.result = result
+            binding.recipe = result
             binding.executePendingBindings()
-            binding.foodContainer.setOnClickListener {
-                val action = RecipeFragmentDirections.actionRecipeFragmentToDetailFragment(result)
-                binding.foodContainer.findNavController().navigate(action)
-            }
         }
 
     }

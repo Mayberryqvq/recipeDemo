@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mayberry.recipedemo.R
 import com.mayberry.recipedemo.data.model.ExtendedIngredient
 import com.mayberry.recipedemo.databinding.FragmentIngredientBinding
 import com.mayberry.recipedemo.fragment.recipe.adapter.IngredientAdapter

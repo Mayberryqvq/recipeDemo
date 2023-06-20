@@ -5,10 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.mayberry.recipedemo.data.local.entity.FavoriteEntity
+import com.mayberry.recipedemo.data.local.entity.RecipeEntity
 import com.mayberry.recipedemo.util.Converter
 
 @TypeConverters(Converter::class)
-@Database(entities = [RecipeEntity::class], version = 1, exportSchema = false)
+@Database(
+    entities = [RecipeEntity::class, FavoriteEntity::class],
+    version = 1,
+    exportSchema = false)
 abstract class RecipeDatabase: RoomDatabase() {
     abstract fun getRecipeDao(): RecipeDao
 
@@ -27,4 +32,5 @@ abstract class RecipeDatabase: RoomDatabase() {
             }
         }
     }
+
 }

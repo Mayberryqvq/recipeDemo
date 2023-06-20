@@ -65,4 +65,5 @@ class TypeAdapter: RecyclerView.Adapter<TypeAdapter.MyViewHolder>() {
     override fun getItemCount(): Int {
         return typeList.size
     }
+
 }

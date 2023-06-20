@@ -4,7 +4,6 @@ import com.mayberry.recipedemo.data.model.Recipe
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Query
 
 class RemoteRepository {
     //创建foodApi对象

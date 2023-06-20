@@ -39,4 +39,5 @@ class IngredientAdapter: RecyclerView.Adapter<IngredientAdapter.MyViewHolder>() 
         ingredientList = newData
         notifyDataSetChanged()
     }
+
 }

@@ -1,4 +1,4 @@
-package com.mayberry.recipedemo.data.local
+package com.mayberry.recipedemo.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -9,6 +9,5 @@ class RecipeEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val type: String,
-    val recipe: Recipe) {
-
-}
+    val recipe: Recipe
+    )
