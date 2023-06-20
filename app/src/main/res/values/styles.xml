@@ -7,11 +7,11 @@
 
     <style name="circleImageStyle">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50dp</item>
+        <item name="cornerSize">52.5dp</item>
     </style>
 
     <style name="circleImageDetailStyle">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">85dp</item>
+        <item name="cornerSize">75dp</item>
     </style>
 </resources>

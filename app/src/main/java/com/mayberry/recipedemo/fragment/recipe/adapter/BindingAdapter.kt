@@ -1,4 +1,4 @@
-package com.mayberry.recipedemo.fragment.recipe
+package com.mayberry.recipedemo.fragment.recipe.adapter
 
 import android.provider.ContactsContract.CommonDataKinds.Im
 import android.view.View
@@ -17,6 +17,15 @@ object BindingAdapter {
         //将url对应的图片下载下来，显示到imageView上
         //Glide
         Glide.with(imageView).load(url).into(imageView)
+    }
+
+    @JvmStatic
+    @BindingAdapter("loadIngredientImageWithName")
+    fun loadIngredientImageWithName(imageView: ImageView, name: String) {
+        //将url对应的图片下载下来，显示到imageView上
+        //Glide
+        val imageBaseUrl = "https://spoonacular.com/recipeImages/"
+        Glide.with(imageView).load(imageBaseUrl + name).placeholder(R.drawable.ic_launcher_background).into(imageView)
     }
 
     @JvmStatic
