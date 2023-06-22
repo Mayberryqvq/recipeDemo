@@ -77,5 +77,6 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     //Jsoup
     implementation 'org.jsoup:jsoup:1.16.1'
-
+    //SwipeRefreshLayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }

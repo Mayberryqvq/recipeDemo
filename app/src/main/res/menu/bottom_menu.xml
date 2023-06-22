@@ -10,17 +10,19 @@
         app:showAsAction="ifRoom"
         android:iconTint="#7C7B7E"
         tools:targetApi="o" />
-    <item
-        android:id="@+id/otherFragment"
-        android:icon="@drawable/ic_other"
-        android:title="Other"
-        app:showAsAction="ifRoom"
-        android:iconTint="#7C7B7E"
-        tools:targetApi="o" />
+
     <item
         android:id="@+id/favoriteFragment"
         android:icon="@drawable/ic_star"
         android:title="Favorite"
+        app:showAsAction="ifRoom"
+        android:iconTint="#7C7B7E"
+        tools:targetApi="o" />
+
+    <item
+        android:id="@+id/loginFragment"
+        android:icon="@drawable/ic_login"
+        android:title="Login"
         app:showAsAction="ifRoom"
         android:iconTint="#7C7B7E"
         tools:targetApi="o" />

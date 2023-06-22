@@ -1,6 +1,7 @@
 package com.mayberry.recipedemo.fragment.recipe
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mayberry.recipedemo.R
 import com.mayberry.recipedemo.databinding.FragmentRecipeBinding
 import com.mayberry.recipedemo.fragment.recipe.adapter.FoodAdapter
 import com.mayberry.recipedemo.fragment.recipe.adapter.TypeAdapter
@@ -46,6 +48,7 @@ class RecipeFragment : Fragment() {
             }
         }
         fetchData("main course")
+        binding.swipeRefresh.setColorSchemeResources(R.color.purple_700)
         return binding.root
     }
 
@@ -75,10 +78,20 @@ class RecipeFragment : Fragment() {
             }
             //获取数据
             fetchData(typeAdapter.typeList[current])
+            Log.v("test", "refresh is starting")
+            binding.swipeRefresh.setOnRefreshListener {
+                refreshRecipe(typeAdapter.typeList[current])
+            }
         }
     }
 
     private fun fetchData(type: String) {
         mainViewModel.fetchRecipes(type)
+    }
+
+    private fun refreshRecipe(type: String) {
+        binding.swipeRefresh.isRefreshing = true
+        mainViewModel.refreshRecipe(type)
+        binding.swipeRefresh.isRefreshing = false
     }
 }

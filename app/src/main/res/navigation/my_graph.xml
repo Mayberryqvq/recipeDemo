@@ -27,15 +27,17 @@
     </fragment>
 
     <fragment
-        android:id="@+id/otherFragment"
-        android:name="com.mayberry.recipedemo.fragment.other.OtherFragment"
-        android:label="fragment_other"
-        tools:layout="@layout/fragment_other" />
+        android:id="@+id/loginFragment"
+        android:name="com.mayberry.recipedemo.fragment.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.mayberry.recipedemo.fragment.favorite.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
+
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.mayberry.recipedemo.fragment.recipe.detail.DetailFragment"
@@ -45,4 +47,5 @@
             android:name="recipe"
             app:argType="com.mayberry.recipedemo.data.model.Result" />
     </fragment>
+
 </navigation>

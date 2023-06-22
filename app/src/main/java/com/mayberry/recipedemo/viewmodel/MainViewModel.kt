@@ -1,6 +1,7 @@
 package com.mayberry.recipedemo.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -69,4 +70,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun refreshRecipe(type: String) {
+        viewModelScope.launch {
+            try {
+                val response = remoteRepository.fetchRecipes(type)
+                if (response.isSuccessful) {
+                    //获取数据成功 处于success状态
+                    recipes.value = NetworkResult.Success(response.body()!!)
+                    //需要将数据保存到数据库
+                    localRepository.insertRecipe(RecipeEntity(0, type, response.body()!!))
+                } else {
+                    //获取数据失败 处于error状态
+                    recipes.value = NetworkResult.Error(response.message())
+                }
+            } catch (e: Exception) {
+                recipes.value = NetworkResult.Error("time out: ${e.message}")
+            }
+        }
+    }
 }
