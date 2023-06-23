@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout7"
+    android:id="@+id/frameLayout8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.login.LoginFragment">
+    tools:context=".fragment.register.RegisterFragment">
 
     <ImageView
         android:id="@+id/register_bg"
@@ -80,27 +80,13 @@
         app:layout_constraintTop_toTopOf="@+id/register_bg" />
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/register_createBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Login"
-        app:layout_constraintEnd_toStartOf="@+id/login_registerBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/register_bg"
+        android:layout_marginTop="30dp"
+        android:text="Create an account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_password_editText" />
-
-    <Button
-        android:id="@+id/login_registerBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Resigster"
-        app:layout_constraintBottom_toBottomOf="@+id/loginBtn"
-        app:layout_constraintEnd_toEndOf="@+id/register_password_editText"
-        app:layout_constraintEnd_toStartOf="@+id/register_bg"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/loginBtn"
-        app:layout_constraintTop_toTopOf="@+id/loginBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

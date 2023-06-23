@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,7 @@ import com.mayberry.recipedemo.util.showToast
 import com.mayberry.recipedemo.viewmodel.MainViewModel
 
 class RecipeFragment : Fragment() {
-
+    private var currentType = "main course"
     private lateinit var binding: FragmentRecipeBinding
     private val typeAdapter = TypeAdapter()
     private val foodAdapter = FoodAdapter()
@@ -32,6 +33,9 @@ class RecipeFragment : Fragment() {
         binding = FragmentRecipeBinding.inflate(inflater)
         initTypeRecyclerView()
         initFoodRecyclerView()
+        binding.swipeRefresh.setOnRefreshListener {
+            refreshRecipe(currentType)
+        }
         mainViewModel.recipes.observe(viewLifecycleOwner) {
             when (it) {
                 is NetworkResult.Success -> {
@@ -78,10 +82,7 @@ class RecipeFragment : Fragment() {
             }
             //获取数据
             fetchData(typeAdapter.typeList[current])
-            Log.v("test", "refresh is starting")
-            binding.swipeRefresh.setOnRefreshListener {
-                refreshRecipe(typeAdapter.typeList[current])
-            }
+            currentType = typeAdapter.typeList[current]
         }
     }
 
@@ -92,6 +93,7 @@ class RecipeFragment : Fragment() {
     private fun refreshRecipe(type: String) {
         binding.swipeRefresh.isRefreshing = true
         mainViewModel.refreshRecipe(type)
+        Toast.makeText(requireContext(), "Refresh finished!", Toast.LENGTH_LONG).show()
         binding.swipeRefresh.isRefreshing = false
     }
 }

@@ -16,9 +16,9 @@
         android:iconTint="#7C7B7E"/>
 
     <item
-        android:id="@+id/loginFragment"
-        android:icon="@drawable/ic_login"
-        android:title="Login"
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/ic_account"
+        android:title="Account"
         app:showAsAction="ifRoom"
         android:iconTint="#7C7B7E"/>
 
